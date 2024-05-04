@@ -30,10 +30,11 @@ const Navbar = () => {
   </div>
 
   {/* Right Section with Text */}
-  <div className="bg-blue-500 text-white font-bold text-sm flex items-center p-1" style={{ width: '65%', minHeight: '40px' }}>
-    Medplus<sup>+</sup>
+  <div className="bg-blue-500 text-white font-bold text-sm italic flex items-center p-1" style={{ width: '65%', minHeight: '40px' }}>
+    <span style={{ fontSize: '12px' }}>Medplus<sup>+</sup></span>
   </div>
 </Link>
+
 
           {/* Menu Icon */}
           <div className="md:hidden">
