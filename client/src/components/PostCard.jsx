@@ -262,10 +262,13 @@ const PostCard = ({ post, user, deletePost, likePost }) => {
         </p>
         <p
           className='flex gap-2 items-center text-base cursor-pointer'
-          onClick={() => setShowComments(!showComments)} // Toggle showComments
+          onClick={() => {
+            setShowComments(showComments === post._id ? null : post._id);
+            getComments(post?._id);
+          }}
         >
           <BiComment size={20} />
-          {post?.comments?.length}
+          {post?.comments?.length} Comments
         </p>
         {user?._id === post?.userId?._id && (
           <div
