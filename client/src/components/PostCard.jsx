@@ -11,20 +11,20 @@ import CustomButton from "./CustomButton";
 import { BiShow } from "react-icons/bi";
 import { CiShare2 } from "react-icons/ci";
 import { apiRequest } from "../utils";
-const getPostComments = async (id) => {
-    setLoading(true);
-    try {
-      const res = await apiRequest({
-        url: `/posts/comments/${id}`,
-        method: "GET",
-      });
-      setComments(res?.data);
-    } catch (error) {
-      console.log("Error fetching comments:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
+const getPostComments = async (id, setLoading, setComments) => {
+  setLoading(true);
+  try {
+    const res = await apiRequest({
+      url: `/posts/comments/${id}`,
+      method: "GET",
+    });
+    setComments(res?.data);
+  } catch (error) {
+    console.log("Error fetching comments:", error);
+  } finally {
+    setLoading(false);
+  }
+};
 
 
 
