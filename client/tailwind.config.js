@@ -23,16 +23,16 @@ export default {
           800: '#f7fafc',
           900: '#ffffff',
         },
-      }
+      },
+      backgroundColor: theme => ({
+        ...theme('colors'),
+        'primary': '#1a202c',
+      }),
+      textColor: theme => ({
+        ...theme('colors'),
+        'primary': '#ffffff',
+      }),
     },
-    backgroundColor: theme => ({
-      ...theme('colors'),
-      'primary': '#1a202c',
-    }),
-    textColor: theme => ({
-      ...theme('colors'),
-      'primary': '#cbd5e0',
-    }),
   },
   plugins: [],
 }
