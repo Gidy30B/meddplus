@@ -17,7 +17,7 @@ const getPostComments = async (id, setLoading, setComments) => {
   setLoading(true);
   try {
     const res = await apiRequest({
-      url: "/comments/:postId/" + id,
+      url: `/comments/${id}`, // Update the URL to include the actual post ID
       method: "GET",
     });
     console.log("Comments response:", res); // Log the response
@@ -28,7 +28,6 @@ const getPostComments = async (id, setLoading, setComments) => {
     setLoading(false);
   }
 };
-
 
 
 const CommentForm = ({ user, id, replyAt, getComments }) => {
