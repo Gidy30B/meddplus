@@ -71,12 +71,12 @@ export const getPosts = async (req, res, next) => {
       ],
     };
 
-    // const posts = await Posts.find(search ? searchPostQuery : {})
-    //   .populate({
-    //     path: "userId",
-    //     select: "firstName lastName location profileUrl -password",
-    //   })
-    //   .sort({ _id: -1 });
+    const posts = await Posts.find(search ? searchPostQuery : {})
+      .populate({
+        path: "userId",
+        select: "firstName lastName location profileUrl -password",
+      })
+      .sort({ _id: -1 });
 
     const friendsPosts = posts?.filter((post) => {
       return friends.includes(post?.userId?._id.toString());
@@ -113,23 +113,23 @@ export const getPost = async (req, res, next) => {
       path: "userId",
       select: "firstName lastName location profileUrl -password",
     });
-    .populate({
-      path: "comments",
-      populate: {
-        path: "userId",
-        select: "firstName lastName location profileUrl -password",
-      },
-      options: {
-        sort: "-_id",
-      },
-    })
-    .populate({
-      path: "comments",
-      populate: {
-        path: "replies.userId",
-        select: "firstName lastName location profileUrl -password",
-      },
-    });
+    // .populate({
+    //   path: "comments",
+    //   populate: {
+    //     path: "userId",
+    //     select: "firstName lastName location profileUrl -password",
+    //   },
+    //   options: {
+    //     sort: "-_id",
+    //   },
+    // })
+    // .populate({
+    //   path: "comments",
+    //   populate: {
+    //     path: "replies.userId",
+    //     select: "firstName lastName location profileUrl -password",
+    //   },
+    // });
 
     res.status(200).json({
       sucess: true,
