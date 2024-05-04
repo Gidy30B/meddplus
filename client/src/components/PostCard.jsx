@@ -11,8 +11,6 @@ import CustomButton from "./CustomButton";
 import { BiShow } from "react-icons/bi";
 import { CiShare2 } from "react-icons/ci";
 import { apiRequest } from "../utils";
-
-const getPostComments = async (id) => {
 const getPostComments = async (id) => {
     setLoading(true);
     try {
