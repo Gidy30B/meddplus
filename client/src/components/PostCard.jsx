@@ -15,15 +15,17 @@ import { apiRequest } from "../utils";
 const getPostComments = async (id) => {
   try {
     const res = await apiRequest({
-      url: "/posts/comments/" +id, // Correctly construct the URL
+      url: "/posts/comments/" + id, // Construct the URL for fetching comments for the given post ID
       method: "GET",
     });
     console.log("Response:", res); // Log the response
-    return res?.data;
+    return res?.data; // Return the comments data
   } catch (error) {
-    console.log("Error fetching comments:", error); // Log any errors
+    console.log("Error fetching comments:", error); // Log any errors while fetching comments
+    return null; // Return null in case of error
   }
 };
+
 
 
 const CommentForm = ({ user, id, replyAt, getComments }) => {
