@@ -77,9 +77,9 @@ const Navbar = () => {
         </div>
       </div>
       <Modal isOpen={isMenuOpen} onClose={toggleMenu}>
-  <div className="fixed top-0 left-0 h-screen w-screen bg-black bg-opacity-50 z-50 overflow-hidden">
-    <div className="transform transition-transform duration-300">
-      <div className="h-full w-full max-w-sm bg-white shadow-lg p-4">
+  <div className="fixed top-0 left-0 h-full w-full bg-black bg-opacity-50 z-50 overflow-hidden">
+    <div className="transform transition-transform duration-300 translate-x-0">
+      <div className="h-full w-11/12 sm:w-1/2 bg-white shadow-lg p-4">
         <div className="flex flex-col gap-4">
           <NavLink to="/" className="text-black" onClick={toggleMenu}>Home</NavLink>
           <NavLink to="/about" className="text-black" onClick={toggleMenu}>About</NavLink>
@@ -93,6 +93,7 @@ const Navbar = () => {
     </div>
   </div>
 </Modal>
+
 
     </nav>
   );
