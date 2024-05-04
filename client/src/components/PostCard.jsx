@@ -13,18 +13,20 @@ import { CiShare2 } from "react-icons/ci";
 import { apiRequest } from "../utils";
 
 const getPostComments = async (id) => {
-  try {
-    const res = await apiRequest({
-      url: "/posts/comments/" + id, // Construct the URL for fetching comments for the given post ID
-      method: "GET",
-    });
-    console.log("Response:", res); // Log the response
-    return res?.data; // Return the comments data
-  } catch (error) {
-    console.log("Error fetching comments:", error); // Log any errors while fetching comments
-    return null; // Return null in case of error
-  }
-};
+const getPostComments = async (id) => {
+    setLoading(true);
+    try {
+      const res = await apiRequest({
+        url: `/posts/comments/${id}`,
+        method: "GET",
+      });
+      setComments(res?.data);
+    } catch (error) {
+      console.log("Error fetching comments:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
 
 
