@@ -134,7 +134,6 @@ const PostCard = ({ post, user, deletePost, likePost }) => {
   const postRef = useRef(null);
 
   const getComments = async (id) => {
-  const getComments = async (id) => {
   try {
     setLoading(true); // Set loading to true when fetching comments
     await getPostComments(id); // Pass setLoading and setComments to getPostComments
