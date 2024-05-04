@@ -1,12 +1,13 @@
+import React from "react";
 import { Outlet, Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { HomePage, Login, Profile, Register, ResetPassword } from "./pages";
 import Contact from './components/contact/Contact';
-import Navbar from './components/nav/Navbar';
-import Footer from './components/footer/Footer'
-import Pillars from './components/pillars/Pillars'
+import Footer from './components/footer/Footer';
+import Pillars from './components/pillars/Pillars';
 import Socials from "./pages/Socials";
 import SymptomCheaker from "./components/carriculum/Carriculum";
+import Navbar from './components/nav/Navbar';
 
 function Layout() {
   const { user } = useSelector((state) => state.user);
@@ -23,10 +24,13 @@ function App() {
   const { theme } = useSelector((state) => state.theme);
   const location = useLocation();
 
+  const isServicesPage = location.pathname === '/services';
+  const isSocialsPage = location.pathname === '/socials';
+
   return (
     <div data-theme={theme} className='w-full min-h-[100vh]'>
-      {location.pathname !== '/socials' && <Contact />}
-      <Navbar />
+      {!isServicesPage && !isSocialsPage && <Contact />}
+      {!isServicesPage && <Navbar />}
       <Routes>
         <Route element={<Layout />}>
           <Route path='/' element={<HomePage />} />
@@ -34,13 +38,12 @@ function App() {
           <Route path='/socials' element={<Socials />} />
           <Route path='/carriculum' element={<SymptomCheaker />} />
           <Route path='/services' element={<Pillars />} />
-          
         </Route>
         <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login />} />
         <Route path='/reset-password' element={<ResetPassword />} />
       </Routes>
-      {location.pathname !== '/socials' && <Footer />}
+      {!isServicesPage && !isSocialsPage && <Footer />}
     </div>
   );
 }
