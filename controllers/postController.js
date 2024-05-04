@@ -113,23 +113,23 @@ export const getPost = async (req, res, next) => {
       path: "userId",
       select: "firstName lastName location profileUrl -password",
     });
-    // .populate({
-    //   path: "comments",
-    //   populate: {
-    //     path: "userId",
-    //     select: "firstName lastName location profileUrl -password",
-    //   },
-    //   options: {
-    //     sort: "-_id",
-    //   },
-    // })
-    // .populate({
-    //   path: "comments",
-    //   populate: {
-    //     path: "replies.userId",
-    //     select: "firstName lastName location profileUrl -password",
-    //   },
-    // });
+    .populate({
+      path: "comments",
+      populate: {
+        path: "userId",
+        select: "firstName lastName location profileUrl -password",
+      },
+      options: {
+        sort: "-_id",
+      },
+    })
+    .populate({
+      path: "comments",
+      populate: {
+        path: "replies.userId",
+        select: "firstName lastName location profileUrl -password",
+      },
+    });
 
     res.status(200).json({
       sucess: true,
