@@ -17,7 +17,7 @@ const getPostComments = async (id, setLoading, setComments) => {
   setLoading(true);
   try {
     const res = await apiRequest({
-      url: `/comments/${id}`, // Update the URL to include the actual post ID
+      url: "/comments/:postId/", + id,// Update the URL to include the actual post ID
       method: "GET",
     });
     console.log("Comments response:", res); // Log the response
