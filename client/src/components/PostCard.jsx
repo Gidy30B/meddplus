@@ -13,6 +13,7 @@ import { CiShare2 } from "react-icons/ci";
 import { apiRequest } from "../utils";
 
 const getPostComments = async (id, setLoading, setComments) => {
+  console.log("Fetching comments for post with ID:", id); // Log when the function is called
   setLoading(true);
   try {
     const res = await apiRequest({
@@ -27,6 +28,7 @@ const getPostComments = async (id, setLoading, setComments) => {
     setLoading(false);
   }
 };
+
 
 
 const CommentForm = ({ user, id, replyAt, getComments }) => {
