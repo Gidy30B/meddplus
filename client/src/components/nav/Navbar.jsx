@@ -76,17 +76,18 @@ const Navbar = () => {
 
         </div>
       </div>
-      <Modal isOpen={isMenuOpen} onClose={toggleMenu}>
-        <div className="flex flex-col gap-4">
-          <NavLink to="/" label="Home" />
-          <NavLink to="/about" label="About" />
-          <NavLink to="/services" label="Services" hasDropdown />
-          <NavLink to="/courses" label="Courses" hasDropdown />
-          <NavLink to="/resources" label="Resources" hasDropdown />
-          <NavLink to="/socials" label="Socials" />
-          <NavLink to="/login" label="Login" />
-        </div>
-      </Modal>
+      <Modal isOpen={isMenuOpen} onClose={toggleMenu} className="fixed inset-y-0 left-0 z-50 bg-white w-45/100 transform transition-transform ease-in-out duration-300">
+  <div className="flex flex-col gap-4 p-4">
+    <NavLink to="/" label="Home" />
+    <NavLink to="/about" label="About" />
+    <NavLink to="/services" label="Services" hasDropdown />
+    <NavLink to="/courses" label="Courses" hasDropdown />
+    <NavLink to="/resources" label="Resources" hasDropdown />
+    <NavLink to="/socials" label="Socials" />
+    <NavLink to="/login" label="Login" />
+  </div>
+</Modal>
+
 
 
     </nav>
