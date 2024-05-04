@@ -13,12 +13,14 @@ import { CiShare2 } from "react-icons/ci";
 import { apiRequest } from "../utils";
 
 const getPostComments = async (id, setLoading, setComments) => {
+const getPostComments = async (id, setLoading, setComments) => {
   setLoading(true);
   try {
     const res = await apiRequest({
       url: `/posts/comments/${id}`,
       method: "GET",
     });
+    console.log("Comments response:", res); // Log the response
     setComments(res?.data);
   } catch (error) {
     console.log("Error fetching comments:", error);
@@ -26,6 +28,7 @@ const getPostComments = async (id, setLoading, setComments) => {
     setLoading(false);
   }
 };
+
 
 const CommentForm = ({ user, id, replyAt, getComments }) => {
   const [loading, setLoading] = useState(false);
