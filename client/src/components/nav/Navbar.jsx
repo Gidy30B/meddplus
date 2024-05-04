@@ -73,23 +73,33 @@ const Navbar = () => {
 
           {/* Apply Now Button */}
          <div>
-            {user ? (
-              <div className="flex items-center">
-                <span className="text-white mr-2">{user.username}</span>
-                <RiUserLine
-                  className="cursor-pointer text-white"
-                
-                />
-              </div>
-            ) : (
-              <Link
-                to="/login"
-                className="bg-orange-500 text-white px-6 py-3 rounded-md hover:bg-blue-600 transition duration-300"
-              >
-                Join Us
-              </Link>
-            )}
-          </div>
+    {user ? (
+    <div className="relative">
+      <button className="flex items-center bg-transparent text-white">
+        <span className="mr-2">{user.username}</span>
+        <RiUserLine
+          className="cursor-pointer text-white text-lg"
+        />
+      </button>
+      <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg">
+        <Link
+          to="/logout"
+          className="block px-4 py-2 text-gray-800 hover:bg-gray-200 transition duration-300"
+        >
+          Log out
+        </Link>
+      </div>
+    </div>
+  ) : (
+    <Link
+      to="/login"
+      className="bg-orange-500 text-white px-6 py-3 rounded-md hover:bg-blue-600 transition duration-300"
+    >
+      Log in
+    </Link>
+  )}
+</div>
+
         </div>
       </div>
       <Modal isOpen={isMenuOpen} onClose={toggleMenu}>
