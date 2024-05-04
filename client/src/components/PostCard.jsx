@@ -129,15 +129,17 @@ const PostCard = ({ post, user, deletePost, likePost }) => {
   const [postViewed, setPostViewed] = useState(false); // Track if post has been viewed
   const [modalOpen, setModalOpen] = useState(false); 
   const postRef = useRef(null);
-
-  const getComments = async (id) => {
-    setReplyComments(0);
-
-    const result = await getPostComments (id);
-
-    setComments(result);
-    setLoading(false);
-  };
+const getComments = async (id) => {
+  try {
+    setLoading(true); // Set loading to true when fetching comments
+    await getPostComments(id); // Pass setLoading and setComments to getPostComments
+  } catch (error) {
+    // Handle any errors that occur during fetching comments
+    console.error("Error fetching comments:", error);
+  } finally {
+    setLoading(false); // Set loading to false after fetching comments, regardless of success or failure
+  }
+};
   
 
 
