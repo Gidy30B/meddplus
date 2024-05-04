@@ -77,16 +77,23 @@ const Navbar = () => {
         </div>
       </div>
       <Modal isOpen={isMenuOpen} onClose={toggleMenu}>
+  <div className="fixed top-0 left-0 h-screen w-screen bg-black bg-opacity-50 z-50 overflow-hidden">
+    <div className="transform transition-transform duration-300">
+      <div className="h-full w-full max-w-sm bg-white shadow-lg p-4">
         <div className="flex flex-col gap-4">
-          <NavLink to="/" label="Home" />
-          <NavLink to="/about" label="About" />
-          <NavLink to="/services" label="Services" hasDropdown />
-          <NavLink to="/courses" label="Courses" hasDropdown />
-          <NavLink to="/resources" label="Resources" hasDropdown />
-          <NavLink to="/socials" label="Socials" />
-          <NavLink to="/login" label="Login" />
+          <NavLink to="/" className="text-black" onClick={toggleMenu}>Home</NavLink>
+          <NavLink to="/about" className="text-black" onClick={toggleMenu}>About</NavLink>
+          <NavLink to="/services" className="text-black" onClick={toggleMenu}>Services</NavLink>
+          <NavLink to="/courses" className="text-black" onClick={toggleMenu}>Courses</NavLink>
+          <NavLink to="/resources" className="text-black" onClick={toggleMenu}>Resources</NavLink>
+          <NavLink to="/socials" className="text-black" onClick={toggleMenu}>Socials</NavLink>
+          <NavLink to="/login" className="text-black" onClick={toggleMenu}>Login</NavLink>
         </div>
-      </Modal>
+      </div>
+    </div>
+  </div>
+</Modal>
+
     </nav>
   );
 };
