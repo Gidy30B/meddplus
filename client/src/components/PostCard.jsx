@@ -11,6 +11,7 @@ import CustomButton from "./CustomButton";
 import { BiShow } from "react-icons/bi";
 import { CiShare2 } from "react-icons/ci";
 import { apiRequest } from "../utils";
+
 const getPostComments = async (id, setLoading, setComments) => {
   setLoading(true);
   try {
@@ -25,8 +26,6 @@ const getPostComments = async (id, setLoading, setComments) => {
     setLoading(false);
   }
 };
-
-
 
 const CommentForm = ({ user, id, replyAt, getComments }) => {
   const [loading, setLoading] = useState(false);
@@ -121,6 +120,7 @@ const CommentForm = ({ user, id, replyAt, getComments }) => {
     </form>
   );
 };
+
 const PostCard = ({ post, user, deletePost, likePost }) => {
   const [showAll, setShowAll] = useState(0);
   const [comments, setComments] = useState([]);
@@ -132,8 +132,7 @@ const PostCard = ({ post, user, deletePost, likePost }) => {
 
   const getComments = async (id) => {
     setLoading(true); // Set loading to true when fetching comments
-    const result = await getPostComments(id);
-    setComments(result);
+    await getPostComments(id, setLoading, setComments); // Pass setLoading and setComments to getPostComments
     setLoading(false); // Set loading to false after fetching comments
   };
 
@@ -141,7 +140,8 @@ const PostCard = ({ post, user, deletePost, likePost }) => {
     await likePost(uri);
     getComments(post?._id);
   };
-const handlePostClick = () => {
+
+  const handlePostClick = () => {
     setModalOpen(true);
     setPostViewed(true); // Set post as viewed
     post.views = post.views + 1; // Increment views
@@ -174,10 +174,6 @@ const handlePostClick = () => {
       }
     };
   }, [postViewed]);
-
-  
-
-
 
   return (
     <div ref={postRef} className='mb-2 bg-primary p-4 rounded-xl'>
@@ -275,12 +271,12 @@ const handlePostClick = () => {
       </div>
       {showComments && ( // Display comments if showComments is true
         <div className='w-full mt-4 border-t border-[#66666645] pt-4'>
-         <CommentForm
-  user={user}
-  id={post?._id}
-  getComments={getComments}
-/>
-
+          <CommentForm
+            user={user}
+            id={post?._id}
+            replyAt={null} // Set replyAt to null for main comments
+            getComments={() => getComments(post?._id)}
+          />
           {loading ? (
             <Loading />
           ) : comments?.length > 0 ? (
