@@ -125,7 +125,7 @@ const PostCard = ({ post, user, deletePost, likePost }) => {
   const [showAll, setShowAll] = useState(0);
   const [comments, setComments] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [showComments, setShowComments] = useState(true); 
+  const [showComments, setShowComments] = useState(false); 
   const [postViewed, setPostViewed] = useState(false); // Track if post has been viewed
   const [modalOpen, setModalOpen] = useState(false); 
   const postRef = useRef(null);
@@ -210,7 +210,7 @@ const getComments = async (id) => {
         </div>
       </div>
       <div className='post-content'>
-        <p className='text-ascent-2'>
+        <p className='text-white'>
           {showAll === post?._id
             ? post?.description
             : post?.description.slice(0, 300)}
