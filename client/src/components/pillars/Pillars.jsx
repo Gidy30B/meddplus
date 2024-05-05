@@ -6,7 +6,7 @@ import SymptomChecker from '../../components/carriculum/Carriculum';
 
 const PillarsSection = () => {
   return (
-    <section className="py-10 bg-gray-50">
+    <section className="py-10 bg-blue-200">
       <div className="container mx-auto px-4">
         <div className="mb-8">
           <div className="flex items-center">
@@ -43,7 +43,7 @@ const SymptomCheckerWithAnimation = () => {
 };
 const ProfileSection = () => {
   return (
-    <div className="flex items-center pb-4"> {/* Adding padding bottom here */}
+    <div className="flex items-center bg-slate-800 pb-4"> {/* Adding padding bottom here */}
       <FaUser className="text-gray-600 text-lg cursor-pointer" />
       <p className="text-gray-600 text-sm ml-2">Hello Gedion</p>
     </div>
@@ -56,7 +56,7 @@ const EmergencyServicesWithAnimation = () => {
       initial="hidden"
       animate="visible"
       variants={slideInVariants}
-      className="bg-white p-6 rounded-lg shadow-md"
+      className="bg-blue-200 p-6 rounded-lg shadow-md"
       transition={{ delay: 0.8 }} // Delay the animation
     >
       <EmergencyServices />
@@ -135,7 +135,7 @@ const DoctorsSection = () => {
   ];
 
   return (
-    <div className="flex flex-nowrap flex-wrap lg:flex-no-wrap">
+    <div className="flex flex-nowrap flex-wrap bg-slate-800 lg:flex-no-wrap">
       {doctors.map((doctor, index) => (
         <motion.div
           key={index}
