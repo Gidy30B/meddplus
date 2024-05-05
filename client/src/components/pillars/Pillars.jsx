@@ -6,7 +6,7 @@ import SymptomChecker from '../../components/carriculum/Carriculum';
 
 const PillarsSection = () => {
   return (
-    <section className="py-10 bg-blue-200">
+    <section className="py-10 bg-slate-800">
       <div className="container mx-auto px-4">
         <div className="mb-8">
           <div className="flex items-center">
@@ -43,7 +43,7 @@ const SymptomCheckerWithAnimation = () => {
 };
 const ProfileSection = () => {
   return (
-    <div className="flex items-center bg-slate-800 pb-4"> {/* Adding padding bottom here */}
+    <div className="flex items-center  pb-4"> {/* Adding padding bottom here */}
       <FaUser className="text-gray-600 text-lg cursor-pointer" />
       <p className="text-gray-600 text-sm ml-2">Hello Gedion</p>
     </div>
