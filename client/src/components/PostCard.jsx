@@ -130,16 +130,18 @@ const PostCard = ({ post, user, deletePost, likePost }) => {
   const [modalOpen, setModalOpen] = useState(false); 
   const postRef = useRef(null);
 const getComments = async (id) => {
-  try {
-    setLoading(true); // Set loading to true when fetching comments
-    await getPostComments(id); // Pass setLoading and setComments to getPostComments
-  } catch (error) {
-    // Handle any errors that occur during fetching comments
-    console.error("Error fetching comments:", error);
-  } finally {
-    setLoading(false); // Set loading to false after fetching comments, regardless of success or failure
-  }
-};
+    try {
+      setLoading(true); // Set loading to true when fetching comments
+      const fetchedComments = await getPostComments(id); // Fetch comments
+      setComments(fetchedComments); // Update comments state with fetched comments
+    } catch (error) {
+      // Handle any errors that occur during fetching comments
+      console.error("Error fetching comments:", error);
+    } finally {
+      setLoading(false); // Set loading to false after fetching comments, regardless of success or failure
+    }
+  };
+
   
 
 
