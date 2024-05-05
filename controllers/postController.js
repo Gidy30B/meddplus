@@ -178,6 +178,9 @@ export const getComments = async (req, res, next) => {
       })
       .sort({ _id: -1 });
 
+    // Log the postComments before sending as a response
+    console.log("Post Comments:", postComments);
+
     res.status(200).json({
       success: true,
       message: "Comments fetched successfully",
@@ -188,6 +191,7 @@ export const getComments = async (req, res, next) => {
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
+
 
 
 
