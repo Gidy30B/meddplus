@@ -191,6 +191,7 @@ export const getComments = async (req, res, next) => {
       message: "Comments fetched successfully",
       data: postComments,
     });
+    console.log(data)
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: "Internal Server Error" });
