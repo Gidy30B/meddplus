@@ -23,9 +23,7 @@ const getPostComments = async (id) => {
   } catch (error) {
     console.log(error)
   }
- 
-}
-
+};
 
 const CommentForm = ({ user, id, replyAt, getComments }) => {
   const [loading, setLoading] = useState(false);
@@ -86,7 +84,7 @@ const CommentForm = ({ user, id, replyAt, getComments }) => {
         />
         <TextInput
           name='comment'
-          styles='w-full rounded-full py-3'
+          styles='w-full rounded-full py-3 text-white' // Set text color to white
           placeholder={replyAt ? `Reply @${replyAt}` : "Comment this post"}
           register={register("comment", {
             required: "Comment can not be empty",
@@ -129,28 +127,24 @@ const PostCard = ({ post, user, deletePost, likePost }) => {
   const [postViewed, setPostViewed] = useState(false); // Track if post has been viewed
   const [modalOpen, setModalOpen] = useState(false); 
   const postRef = useRef(null);
-const getComments = async (id) => {
-  try {
-    setLoading(true); // Set loading to true when fetching comments
-    const fetchedComments = await getPostComments(id); // Fetch comments
-    console.log("Fetched comments:", fetchedComments); // Log the fetched comments
-    if (Array.isArray(fetchedComments)) {
-      setComments(fetchedComments); // Update comments state with fetched comments
-    } else {
-      console.error("Invalid comments data format:", fetchedComments);
+
+  const getComments = async (id) => {
+    try {
+      setLoading(true); // Set loading to true when fetching comments
+      const fetchedComments = await getPostComments(id); // Fetch comments
+      console.log("Fetched comments:", fetchedComments); // Log the fetched comments
+      if (Array.isArray(fetchedComments)) {
+        setComments(fetchedComments); // Update comments state with fetched comments
+      } else {
+        console.error("Invalid comments data format:", fetchedComments);
+      }
+    } catch (error) {
+      // Handle any errors that occur during fetching comments
+      console.error("Error fetching comments:", error);
+    } finally {
+      setLoading(false); // Set loading to false after fetching comments, regardless of success or failure
     }
-  } catch (error) {
-    // Handle any errors that occur during fetching comments
-    console.error("Error fetching comments:", error);
-  } finally {
-    setLoading(false); // Set loading to false after fetching comments, regardless of success or failure
-  }
-};
-
-
-
-  
-
+  };
 
   const handleLike = async (uri) => {
     await likePost(uri);
@@ -202,18 +196,18 @@ const getComments = async (id) => {
           />
         </Link>
         <Link to={"/post/" + post?._id} >
-          <p className='font-medium text-lg text-ascent-1'>{post?.title}</p>
+          <p className='font-medium text-lg text-ascent-1 text-white'>{post?.title}</p> {/* Set text color to white */}
         </Link>
         <div className='w-full flex justify-between'>
           <div>
             <Link to={"/profile/" + post?.userId?._id}>
-              <p className='font-medium text-lg text-ascent-1'>
+              <p className='font-medium text-lg text-ascent-1 text-white'>
                 {post?.userId?.firstName} {post?.userId?.lastName}
               </p>
             </Link>
-            <span className='text-ascent-2'>{post?.userId?.location}</span>
+            <span className='text-ascent-2 text-white'>{post?.userId?.location}</span> {/* Set text color to white */}
           </div>
-          <span className='text-ascent-2'>
+          <span className='text-ascent-2 text-white'>
             {moment(post?.createdAt ?? "2023-05-25").fromNow()}
           </span>
         </div>
@@ -250,7 +244,7 @@ const getComments = async (id) => {
       </div>
       <div className='mt-4 flex justify-between items-center px-3 py-2 text-ascent-2 text-base border-t border-[#66666645]'>
         <p
-          className='flex gap-2 items-center text-base cursor-pointer'
+          className='flex gap-2 items-center text-base cursor-pointer text-white' // Set text color to white
           onClick={() => handleLike("/posts/like/" + post?._id)}
         >
           {post?.likes?.includes(user?._id) ? (
@@ -260,16 +254,16 @@ const getComments = async (id) => {
           )}
           {post?.likes?.length}
         </p>
-        <div className='flex gap-2 items-center text-base cursor-pointer'>
+        <div className='flex gap-2 items-center text-base cursor-pointer text-white'> {/* Set text color to white */}
           <BiShow size={20} />
           {post?.views} Views
         </div>
-        <p className='flex gap-2 items-center text-base cursor-pointer'>
+        <p className='flex gap-2 items-center text-base cursor-pointer text-white'> {/* Set text color to white */}
           <CiShare2 size={20} />
           Share
         </p>
         <p
-          className='flex gap-2 items-center text-base cursor-pointer'
+          className='flex gap-2 items-center text-base cursor-pointer text-white' // Set text color to white
           onClick={() => {
             setShowComments(showComments === post._id ? null : post._id);
             getComments(post?._id);
@@ -280,7 +274,7 @@ const getComments = async (id) => {
         </p>
         {user?._id === post?.userId?._id && (
           <div
-            className='flex gap-1 items-center text-base text-ascent-1 cursor-pointer'
+            className='flex gap-1 items-center text-base text-ascent-1 cursor-pointer text-white' // Set text color to white
             onClick={() => deletePost(post?._id)}
           >
             <MdOutlineDeleteOutline size={20} />
@@ -311,22 +305,22 @@ const getComments = async (id) => {
                   </Link>
                   <div>
                     <Link to={"/profile/" + comment?.userId?._id}>
-                      <p className='font-medium text-base text-ascent-1'>
+                      <p className='font-medium text-base text-ascent-1 text-white'> {/* Set text color to white */}
                         {comment?.userId?.firstName} {comment?.userId?.lastName}
                       </p>
                     </Link>
-                    <span className='text-ascent-2 text-sm'>
+                    <span className='text-ascent-2 text-sm text-white'> {/* Set text color to white */}
                       {moment(comment?.createdAt ?? "2023-05-25").fromNow()}
                     </span>
                   </div>
                 </div>
                 <div className='ml-12'>
-                  <p className='text-ascent-2'>{comment?.comment}</p>
+                  <p className='text-ascent-2 text-white'>{comment?.comment}</p> {/* Set text color to white */}
                 </div>
               </div>
             ))
           ) : (
-            <span className='flex text-sm py-4 text-ascent-2 text-center'>
+            <span className='flex text-sm py-4 text-ascent-2 text-center text-white'>
               No Comments, be the first to comment
             </span>
           )}
