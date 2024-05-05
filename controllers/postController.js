@@ -167,7 +167,10 @@ export const getComments = async (req, res, next) => {
   try {
     const { postId } = req.params;
 
-    console.log("postId:", postId); // Log the postId
+    // Check if postId is provided
+    if (!postId) {
+      return res.status(400).json({ message: "postId parameter is missing" });
+    }
 
     const postComments = await Comments.find({ postId })
       .populate({
@@ -180,19 +183,16 @@ export const getComments = async (req, res, next) => {
       })
       .sort({ _id: -1 });
 
-    console.log("postComments:", postComments); // Log the postComments
-
     res.status(200).json({
       success: true,
-      message: "successfully",
+      message: "Comments fetched successfully",
       data: postComments,
     });
   } catch (error) {
     console.log(error);
-    res.status(404).json({ message: error.message });
+    res.status(500).json({ message: "Internal Server Error" });
   }
 };
-
 
 
 
