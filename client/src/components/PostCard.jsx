@@ -133,8 +133,12 @@ const getComments = async (id) => {
   try {
     setLoading(true); // Set loading to true when fetching comments
     const fetchedComments = await getPostComments(id); // Fetch comments
-    setComments(fetchedComments); // Update comments state with fetched comments
     console.log("Fetched comments:", fetchedComments); // Log the fetched comments
+    if (Array.isArray(fetchedComments)) {
+      setComments(fetchedComments); // Update comments state with fetched comments
+    } else {
+      console.error("Invalid comments data format:", fetchedComments);
+    }
   } catch (error) {
     // Handle any errors that occur during fetching comments
     console.error("Error fetching comments:", error);
@@ -142,6 +146,7 @@ const getComments = async (id) => {
     setLoading(false); // Set loading to false after fetching comments, regardless of success or failure
   }
 };
+
 
 
   
