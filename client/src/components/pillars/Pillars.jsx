@@ -34,7 +34,7 @@ const SymptomCheckerWithAnimation = () => {
       initial="hidden"
       animate="visible"
       variants={slideInVariants}
-      className="bg-white p-6 rounded-lg shadow-md"
+      className="bg-blue-200 p-6 rounded-lg shadow-md"
       transition={{ delay: 0.2 }} // Delay the animation
     >
       <SymptomChecker />
@@ -117,7 +117,7 @@ const DoctorsSectionWithAnimation = () => {
       initial="hidden"
       animate="visible"
       variants={slideInVariants}
-      className="bg-white p-6 rounded-lg shadow-md overflow-x-auto"
+      className="bg-blue-200 p-6 rounded-lg shadow-md overflow-x-auto"
       transition={{ delay: 1.8 }} // Delay the animation
     >
       <DoctorsSection />
