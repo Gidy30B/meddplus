@@ -255,12 +255,12 @@ const PostCard = ({ post, user, deletePost, likePost }) => {
           {post?.likes?.length}
         </p>
         <div className='flex gap-2 items-center text-base cursor-pointer text-white'> {/* Set text color to white */}
-          <BiShow size={20} />
-          {post?.views} Views
+          <BiShow size={20} color='pink' />
+          {post?.views} 
         </div>
         <p className='flex gap-2 items-center text-base cursor-pointer text-white'> {/* Set text color to white */}
-          <CiShare2 size={20} />
-          Share
+          <CiShare2 size={20} color='orange' />
+          
         </p>
         <p
           className='flex gap-2 items-center text-base cursor-pointer text-white' // Set text color to white
@@ -270,7 +270,7 @@ const PostCard = ({ post, user, deletePost, likePost }) => {
           }}
         >
           <BiComment size={20} />
-          {post?.comments?.length} Comments
+          {post?.comments?.length} 
         </p>
         {user?._id === post?.userId?._id && (
           <div
