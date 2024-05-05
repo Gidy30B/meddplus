@@ -125,7 +125,7 @@ const PostCard = ({ post, user, deletePost, likePost }) => {
   const [showAll, setShowAll] = useState(0);
   const [comments, setComments] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [showComments, setShowComments] = useState(false); 
+  const [showComments, setShowComments] = useState(true); 
   const [postViewed, setPostViewed] = useState(false); // Track if post has been viewed
   const [modalOpen, setModalOpen] = useState(false); 
   const postRef = useRef(null);
