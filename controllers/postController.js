@@ -163,7 +163,6 @@ export const getUserPost = async (req, res, next) => {
     res.status(404).json({ message: error.message });
   }
 };
-
 export const getComments = async (req, res, next) => {
   try {
     const { postId } = req.params;
@@ -180,15 +179,18 @@ export const getComments = async (req, res, next) => {
       .sort({ _id: -1 });
 
     res.status(200).json({
-      sucess: true,
-      message: "successfully",
+      success: true,
+      message: "Comments fetched successfully",
       data: postComments,
     });
   } catch (error) {
     console.log(error);
-    res.status(404).json({ message: error.message });
+    res.status(500).json({ message: "Internal Server Error" });
   }
 };
+
+
+
 
 export const likePost = async (req, res, next) => {
   try {
