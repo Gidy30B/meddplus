@@ -167,6 +167,8 @@ export const getComments = async (req, res, next) => {
   try {
     const { postId } = req.params;
 
+    console.log("postId:", postId); // Log the postId
+
     const postComments = await Comments.find({ postId })
       .populate({
         path: "userId",
@@ -178,17 +180,14 @@ export const getComments = async (req, res, next) => {
       })
       .sort({ _id: -1 });
 
-    // Log the postComments before sending as a response
-    console.log("Post Comments:", postComments);
-
     res.status(200).json({
       success: true,
-      message: "Comments fetched successfully",
+      message: "successfully",
       data: postComments,
     });
   } catch (error) {
     console.log(error);
-    res.status(500).json({ message: "Internal Server Error" });
+    res.status(404).json({ message: error.message });
   }
 };
 
