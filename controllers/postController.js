@@ -167,6 +167,9 @@ export const getComments = async (req, res, next) => {
   try {
     const { postId } = req.params;
 
+    // Log the postId
+    console.log("postId:", postId);
+
     // Check if postId is provided
     if (!postId) {
       return res.status(400).json({ message: "postId parameter is missing" });
@@ -193,6 +196,7 @@ export const getComments = async (req, res, next) => {
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
+
 
 
 
