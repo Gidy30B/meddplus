@@ -180,6 +180,8 @@ export const getComments = async (req, res, next) => {
       })
       .sort({ _id: -1 });
 
+    console.log("postComments:", postComments); // Log the postComments
+
     res.status(200).json({
       success: true,
       message: "successfully",
@@ -190,6 +192,7 @@ export const getComments = async (req, res, next) => {
     res.status(404).json({ message: error.message });
   }
 };
+
 
 
 
