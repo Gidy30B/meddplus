@@ -45,7 +45,7 @@ const ProfileSection = () => {
   return (
     <div className="flex items-center  pb-4"> {/* Adding padding bottom here */}
       <FaUser className="text-orange-500 text-lg cursor-pointer" />
-      <p className="text-slate-950 text-sm ml-2 ">Hello Gedion</p>
+      <p className="text-white text-md ml-2 ">Hello Gedion</p>
     </div>
   );
 };
@@ -159,16 +159,16 @@ const MobileNavbar = () => {
   return (
     <div className="fixed bottom-0 left-0 w-full bg-blue-500 shadow-md p-4 flex justify-around items-center md:hidden">
       <Link to="/">
-        <FaHome className="text-gray-600 text-lg cursor-pointer" />
+        <FaHome className="text-white text-lg cursor-pointer" />
       </Link>
       <Link to="/messages">
-        <FaEnvelope className="text-gray-600 text-lg cursor-pointer" />
+        <FaEnvelope className="text-white text-lg cursor-pointer" />
       </Link>
       <Link to="/search">
-        <FaSearch className="text-gray-600 text-lg cursor-pointer" />
+        <FaSearch className="text-white text-lg cursor-pointer" />
       </Link>
       <Link to="/bookings">
-        <FaCalendar className="text-gray-600 text-lg cursor-pointer" />
+        <FaCalendar className="text-white text-lg cursor-pointer" />
       </Link>
     </div>
   );
