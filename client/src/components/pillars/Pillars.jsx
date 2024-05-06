@@ -157,7 +157,7 @@ const DoctorsSection = () => {
 
 const MobileNavbar = () => {
   return (
-    <div className="fixed bottom-0 left-0 w-full bg-white shadow-md p-4 flex justify-around items-center md:hidden">
+    <div className="fixed bottom-0 left-0 w-full bg-blue-500 shadow-md p-4 flex justify-around items-center md:hidden">
       <Link to="/">
         <FaHome className="text-gray-600 text-lg cursor-pointer" />
       </Link>
