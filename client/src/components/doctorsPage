@@ -1,1 +1,60 @@
+import React from 'react';
 
+const doctorsData = [
+  {
+    id: 1,
+    name: "Dr. John Doe",
+    profileImage: "doctor1.jpg",
+    speciality: "Cardiologist",
+    location: "New York, NY",
+    experience: 10
+  },
+  {
+    id: 2,
+    name: "Dr. Jane Smith",
+    profileImage: "doctor1.jpg",
+    speciality: "Dermatologist",
+    location: "Los Angeles, CA",
+    experience: 8
+  },
+  // Add more dummy data as needed
+];
+
+const DoctorDetails = ({ doctor }) => {
+  return (
+    <div className="bg-white p-6 rounded-lg shadow-md">
+      <img src={require(`./${doctor.profileImage}`).default} alt={doctor.name} className="w-24 h-24 rounded-full mx-auto mb-4" />
+      <h2 className="text-xl font-semibold mb-2">{doctor.name}</h2>
+      <p className="text-gray-600 mb-2">{doctor.speciality}</p>
+      <p className="text-gray-600 mb-2">{doctor.location}</p>
+      <div className="flex items-center mb-2">
+        <span className="text-yellow-400">
+          {[...Array(doctor.experience)].map((_, index) => (
+            <svg key={index} xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+              <path fillRule="evenodd" d="M2 10a8 8 0 1116 0 8 8 0 01-16 0zm10-7a1 1 0 00-2 0v3a1 1 0 002 0V3zM5.707 7.293a1 1 0 00-1.414 1.414l1.5 1.5a1 1 0 001.414 0l1.5-1.5a1 1 0 00-1.414-1.414L7 8.586 5.707 7.293zM14 8a1 1 0 100 2h-3a1 1 0 000-2h3z" clipRule="evenodd" />
+            </svg>
+          ))}
+        </span>
+        <span className="text-gray-600">{doctor.experience} years experience</span>
+      </div>
+      <button className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300">Book Appointment</button>
+    </div>
+  );
+};
+
+const DoctorsPage = () => {
+  return (
+    <div className="min-h-screen bg-blue-500 flex justify-center items-center">
+      <div className="max-w-xl w-full p-8 bg-blue-500">
+        <h1 className="text-3xl font-semibold text-white mb-8">Find Your Doctor</h1>
+        <div className="grid gap-8 md:grid-cols-2">
+          {doctorsData.map((doctor) => (
+            <DoctorDetails key={doctor.id} doctor={doctor} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default DoctorsPage;
