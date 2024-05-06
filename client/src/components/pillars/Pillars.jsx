@@ -127,11 +127,11 @@ const DoctorsSectionWithAnimation = () => {
 
 const DoctorsSection = () => {
   const doctors = [
-    { name: "Doctor 1", image: "doctor1", description: "Description of Doctor 1" },
-    { name: "Doctor 2", image: "doctor1", description: "Description of Doctor 2" },
-    { name: "Doctor 3", image: "doctor1", description: "Description of Doctor 3" },
-    { name: "Doctor 4", image: "doctor1", description: "Description of Doctor 4" },
-    { name: "Doctor 5", image: "doctor1", description: "Description of Doctor 5" }
+    { name: "Doctor 1", image: doctor1, description: "Description of Doctor 1" },
+    { name: "Doctor 2", image: doctor1, description: "Description of Doctor 2" },
+    { name: "Doctor 3", image: doctor1, description: "Description of Doctor 3" },
+    { name: "Doctor 4", image: doctor1, description: "Description of Doctor 4" },
+    { name: "Doctor 5", image: doctor1, description: "Description of Doctor 5" }
   ];
 
   return (
@@ -144,16 +144,19 @@ const DoctorsSection = () => {
           transition={{ delay: 0.9 + index * 0.1 }} // Delay each doctor card animation
           className="flex-shrink-0 w-48 lg:w-64 bg-gray-200 rounded-lg p-4 mr-4 mb-4"
         >
-          <img src={doctor.image} alt={doctor.name} className="w-full h-32 lg:h-40 object-cover rounded-lg mb-2" />
-          <div className="flex flex-col justify-center">
-            <p className="text-gray-800 font-semibold">{doctor.name}</p>
-            <p className="text-gray-600">{doctor.description}</p>
-          </div>
+          <Link to="/doctors" className="hover:underline">
+            <img src={doctor.image} alt={doctor.name} className="w-full h-32 lg:h-40 object-cover rounded-lg mb-2" />
+            <div className="flex flex-col justify-center">
+              <p className="text-gray-800 font-semibold">{doctor.name}</p>
+              <p className="text-gray-600">{doctor.description}</p>
+            </div>
+          </Link>
         </motion.div>
       ))}
     </div>
   );
 };
+
 
 const MobileNavbar = () => {
   return (
