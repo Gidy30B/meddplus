@@ -8,6 +8,7 @@ import Pillars from './components/pillars/Pillars';
 import Socials from "./pages/Socials";
 import SymptomCheaker from "./components/carriculum/Carriculum";
 import Navbar from './components/nav/Navbar';
+import doctorsPage from './components/doctorsPage';
 
 function Layout() {
   const { user } = useSelector((state) => state.user);
@@ -38,6 +39,7 @@ function App() {
           <Route path='/socials' element={<Socials />} />
           <Route path='/carriculum' element={<SymptomCheaker />} />
           <Route path='/services' element={<Pillars />} />
+          <Route path='/doctorsPage' element={<doctorsPage/>} />
         </Route>
         <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login />} />
