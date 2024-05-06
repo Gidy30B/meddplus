@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FaHome, FaEnvelope, FaSearch, FaCalendar, FaAmbulance, FaUserMd, FaFlask, FaUser } from 'react-icons/fa';
 import SymptomChecker from '../../components/carriculum/Carriculum';
-import doctor1 from "../../assets/istockphoto-1366374033-612x612.jpg";
+
 const PillarsSection = () => {
   return (
     <section className="py-10 bg-slate-800">
