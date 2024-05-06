@@ -135,7 +135,7 @@ const DoctorsSection = () => {
   ];
 
   return (
-    <div className="flex flex-nowrap flex-wrap bg-slate-800 lg:flex-no-wrap">
+    <div className="flex flex-nowrap flex-wrap lg:flex-no-wrap">
       {doctors.map((doctor, index) => (
         <motion.div
           key={index}
