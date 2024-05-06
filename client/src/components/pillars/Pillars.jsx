@@ -128,10 +128,10 @@ const DoctorsSectionWithAnimation = () => {
 const DoctorsSection = () => {
   const doctors = [
     { name: "Doctor 1", image: "doctor1.jpg", description: "Description of Doctor 1" },
-    { name: "Doctor 2", image: "doctor2.jpg", description: "Description of Doctor 2" },
-    { name: "Doctor 3", image: "doctor3.jpg", description: "Description of Doctor 3" },
-    { name: "Doctor 4", image: "doctor4.jpg", description: "Description of Doctor 4" },
-    { name: "Doctor 5", image: "doctor5.jpg", description: "Description of Doctor 5" }
+    { name: "Doctor 2", image: "doctor1.jpg", description: "Description of Doctor 2" },
+    { name: "Doctor 3", image: "doctor1.jpg", description: "Description of Doctor 3" },
+    { name: "Doctor 4", image: "doctor1.jpg", description: "Description of Doctor 4" },
+    { name: "Doctor 5", image: "doctor1.jpg", description: "Description of Doctor 5" }
   ];
 
   return (
